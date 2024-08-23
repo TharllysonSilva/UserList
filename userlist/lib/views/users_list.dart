@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:userlist/components/user_tile.dart';
 import 'package:userlist/data/dummy_users.dart';
 
 class ListUsers extends StatelessWidget {
@@ -6,10 +7,17 @@ class ListUsers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const users = {...dummyUsers};
+    final users = {...dummyUsers};
 
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            color: Colors.white,
+            icon: const Icon(Icons.add),
+          ),
+        ],
         centerTitle: true,
         backgroundColor: Colors.blue,
         title: const Text('Lista de usuarios'),
@@ -17,7 +25,7 @@ class ListUsers extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: users.length,
-        itemBuilder: (ctx, i) => Text(users.values.elementAt(i).name),
+        itemBuilder: (ctx, i) => UserTile(users.values.elementAt(i)),
       ),
     );
   }
