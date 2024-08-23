@@ -1,6 +1,6 @@
 import 'package:userlist/models/user.dart';
 
-const DUMMY_USERS = {
+const dummyUsers = {
   '1': User(
     name: 'Jessye',
     email: 'jessye@gmail.com',
