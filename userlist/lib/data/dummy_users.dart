@@ -11,7 +11,7 @@ const dummyUsers = {
     name: 'Nildelene',
     email: 'branca@gmail.com',
     avatarUrl:
-        'https://cdn.pixabay.com/photo/2015/10/18/20/15/woman-995164_1280.png',
+        'https://cdn.pixabay.com/photo/2013/07/13/12/06/woman-159169_1280.png',
   ),
   '3': User(
     name: 'Raimunda',
