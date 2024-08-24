@@ -48,4 +48,11 @@ class Users with ChangeNotifier {
 
     notifyListeners();
   }
+
+  void remove(User user) {
+    if (user != '' && user.id != '') {
+      _items.remove(user.id);
+      notifyListeners();
+    }
+  }
 }
