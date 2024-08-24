@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:userlist/components/user_tile.dart';
 import 'package:userlist/provider/users.dart';
+import 'package:userlist/routes/app_routes.dart';
 
 class ListUsers extends StatelessWidget {
   const ListUsers({super.key});
@@ -14,7 +15,9 @@ class ListUsers extends StatelessWidget {
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.userForm);
+            },
             color: Colors.white,
             icon: const Icon(Icons.add),
           ),
