@@ -27,8 +27,8 @@ class _UserFormState extends State<UserForm> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final user = ModalRoute.of(context)?.settings.arguments as User;
-    _loadFormData(user!);
+    final User user = ModalRoute.of(context)?.settings.arguments as User;
+    _loadFormData(user);
   }
 
   @override
