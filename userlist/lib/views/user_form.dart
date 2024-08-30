@@ -4,7 +4,7 @@ import 'package:userlist/models/user.dart';
 import 'package:userlist/provider/users.dart';
 
 class UserForm extends StatefulWidget {
-  UserForm({super.key});
+  const UserForm({super.key});
 
   @override
   State<UserForm> createState() => _UserFormState();
@@ -15,19 +15,20 @@ class _UserFormState extends State<UserForm> {
 
   final Map<String, String> _formData = {};
 
-  void _loadFormData(User user) {
+  void _loadFormData(User? user) {
     if (user != '') {
-      _formData['id'] = user.id.toString();
-      _formData['name'] = user.name.toString();
-      _formData['email'] = user.email.toString();
-      _formData['avatarUrl'] = user.avatarUrl.toString();
+      _formData['id'] = user?.id.toString() ?? '';
+      _formData['name'] = user?.name.toString() ?? '';
+      _formData['email'] = user?.email.toString() ?? '';
+      _formData['avatarUrl'] = user?.avatarUrl.toString() ?? '';
     }
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final User user = ModalRoute.of(context)?.settings.arguments as User;
+    final User? user = ModalRoute.of(context)?.settings.arguments as User?;
+
     _loadFormData(user);
   }
 
