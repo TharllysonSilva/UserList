@@ -20,16 +20,17 @@ class Users with ChangeNotifier {
   }
 
   void put(User user) {
-    if (user == '') {
+    if (user.name.trim().isEmpty || user.email.trim().isEmpty) {
       return;
     }
 
-    if (user.id != '' &&
+    if (user.id != null &&
         user.id!.trim().isNotEmpty &&
         _items.containsKey(user.id)) {
       _items.update(
-        user.id.toString(),
+        user.id!,
         (_) => User(
+          id: user.id,
           name: user.name,
           email: user.email,
           avatarUrl: user.avatarUrl,
@@ -38,19 +39,21 @@ class Users with ChangeNotifier {
     } else {
       final id = Random().nextDouble().toString();
       _items.putIfAbsent(
-          id,
-          () => User(
-                name: user.name,
-                email: user.email,
-                avatarUrl: user.avatarUrl,
-              ));
+        id,
+        () => User(
+          id: id,
+          name: user.name,
+          email: user.email,
+          avatarUrl: user.avatarUrl,
+        ),
+      );
     }
 
     notifyListeners();
   }
 
   void remove(User user) {
-    if (user != '' && user.id != '') {
+    if (user.id != null && user.id!.trim().isNotEmpty) {
       _items.remove(user.id);
       notifyListeners();
     }
